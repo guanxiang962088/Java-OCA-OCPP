@@ -3,11 +3,10 @@ package eu.chargetime.ocpp.jsonserverimplementation.server;
 import eu.chargetime.ocpp.JSONServer;
 import eu.chargetime.ocpp.ServerEvents;
 import eu.chargetime.ocpp.jsonserverimplementation.config.ApplicationConfiguration;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 @Slf4j
 @Component
@@ -21,5 +20,6 @@ public class JsonServerImpl {
     @PostConstruct
     public void startServer() throws Exception {
         server.open("localhost", applicationConfiguration.getServerPort(), serverEvents);
+
     }
 }

@@ -1,5 +1,6 @@
 package eu.chargetime.ocpp.jsonserverimplementation.config;
 
+import eu.chargetime.ocpp.AuthenticationException;
 import eu.chargetime.ocpp.ServerEvents;
 import eu.chargetime.ocpp.model.SessionInformation;
 import lombok.Getter;
@@ -21,6 +22,11 @@ public class ServerEventConfig {
 
     private ServerEvents getNewServerEventsImpl() {
         return new ServerEvents() {
+
+            @Override
+            public void authenticateSession(SessionInformation information, String username, byte[] password) throws AuthenticationException {
+
+            }
 
             @Override
             public void newSession(UUID sessionIndex, SessionInformation information) {
